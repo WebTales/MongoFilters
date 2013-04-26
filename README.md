@@ -5,14 +5,14 @@ Filter Layer for MongoDB queries
 
 Exemple of use :
 
-	$filters = new \WebTales\MongoFilters\Filter();
-    $filter = new \WebTales\MongoFilters\Simple\ValueFilter(array(
+	$filters = Filter::Factory();
+    $filter = Filter::Factory('Value',array(
         'name' => 'param',
         'value' => 'value'
     ));
     $filters->addFilter($filter);
     
-    $filter = new \WebTales\MongoFilters\Simple\InFilter();
+    $filter = Filter::Factory('In');
     $filter->setName('param2')
             ->setValue(array(
                 'value1',
@@ -20,13 +20,13 @@ Exemple of use :
                 ));
     $filters->addFilter($filter);
     
-    $filter = new \WebTales\MongoFilters\Simple\NotFilter(array('name'=>'param3','value'=>'value3'));
+    $filter = Filter::Factory('Not',array('name'=>'param3','value'=>'value3'));
     $filters->addFilter($filter);
     
-    $filter = new \WebTales\MongoFilters\Uid\UidFilter(array('value'=>'5178f41a2a804fdc5c000087'));
+    $filter = Filter::Factory('Uid',array('value'=>'5178f41a2a804fdc5c000087'));
     $filters->addFilter($filter);
     
-    $filter = new \WebTales\MongoFilters\Uid\NotInUidFilter(array('value'=>array('5178f41a2a804fdc5c000087','5178f41a2a804fdc5c000087')));
+    $filter = Filter::Factory('NotInUid',array('value'=>array('5178f41a2a804fdc5c000087','5178f41a2a804fdc5c000087')));
     $filters->addFilter($filter);
 	
 	$cursor = $aMongoCollectionObject->find($filters->toArray());
