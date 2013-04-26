@@ -10,10 +10,7 @@ class ValueFilter extends AbstractFilter
     
     protected $_value;
     
-	/* (non-PHPdoc)
-     * @see \WebTales\MongoFilters\AbstractFilter::construct()
-     */
-    public function construct (array $params)
+    public function __construct (array $params)
     {
         if(!isset($params['name'])){
             throw new Exception('name is required');
@@ -28,9 +25,6 @@ class ValueFilter extends AbstractFilter
         return $this;
     }
 
-	/* (non-PHPdoc)
-     * @see \WebTales\MongoFilters\AbstractFilter::toArray()
-     */
     public function toArray ()
     {
         return array($this->_name => $this->_value);        
@@ -38,5 +32,3 @@ class ValueFilter extends AbstractFilter
 
     
 }
-
-?>

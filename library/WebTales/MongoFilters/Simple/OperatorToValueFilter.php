@@ -8,13 +8,9 @@ class OperatorToValueFilter extends ValueFilter
 
     protected $_operator = null;
     
-    /*
-     * (non-PHPdoc) @see \WebTales\MongoFilters\AbstractFilter::construct()
-     */
-    public function construct (array $params)
+
+    public function __construct (array $params)
     {
-        parent::construct($params);
-        
         if (is_null($this->_operator)) {
             if (! isset($params['operator'])) {
                 throw new Exception('operator is required');
@@ -22,7 +18,8 @@ class OperatorToValueFilter extends ValueFilter
             $this->_operator = $params['operator'];
         }
         
-        return $this;
+        return parent::__construct($params);
+        ;
     }
     
     /*
@@ -37,5 +34,3 @@ class OperatorToValueFilter extends ValueFilter
         );
     }
 }
-
-?>

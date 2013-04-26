@@ -6,5 +6,3 @@ use WebTales\MongoFilters\Composite\AndFilter;
 class Filter extends AndFilter
 {
 }
-
-?>

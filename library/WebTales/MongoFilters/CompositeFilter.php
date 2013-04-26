@@ -5,9 +5,7 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
 {
     protected $_filtersArray = array();
     
-	/* (non-PHPdoc)
-     * @see \WebTales\MongoFilters\ICompositeFilter::addFilter()
-     */
+
     public function addFilter (\WebTales\MongoFilters\IFilter $filter)
     {
         $this->_filtersArray[] = $filter;
@@ -31,5 +29,3 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
 
     
 }
-
-?>
