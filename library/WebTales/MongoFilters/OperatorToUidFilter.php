@@ -47,7 +47,6 @@ class OperatorToUidFilter extends UidFilter
         if (is_array($this->_value)) {
             $value = array();
             foreach ($this->_value as $id) {
-                $id = $this->_value;
                 if (! $id instanceof \MongoId) {
                     $id = new \MongoId($id);
                 }
