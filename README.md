@@ -5,6 +5,9 @@ Filter Layer for MongoDB queries
 
 Exemple of use :
 
+	Use WebTales\MongoFilters\Filter;
+	(...)
+
 	$filters = Filter::Factory();
     $filter = Filter::Factory('Value',array(
         'name' => 'param',
@@ -30,6 +33,7 @@ Exemple of use :
     $filters->addFilter($filter);
 	
 	$cursor = $aMongoCollectionObject->find($filters->toArray());
+	(...)
 
 
 Copyright (c) 2013-2013 Julien Bourdin
