@@ -1,0 +1,7 @@
+{
+    "name": "webtales/mongo-filters",
+    "require": {
+        "php": ">=5.3.0",
+		"ext-mongo": "*"
+    }
+}
