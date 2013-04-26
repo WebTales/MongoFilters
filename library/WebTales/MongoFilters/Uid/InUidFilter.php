@@ -1,7 +1,7 @@
 <?php
 namespace WebTales\MongoFilters\Uid;
 
-class InFilter extends OperatorToUidFilter
+class InUidFilter extends OperatorToUidFilter
 {
     protected $_operator = '$in';
 }
