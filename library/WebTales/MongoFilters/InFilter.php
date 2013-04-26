@@ -1,5 +1,5 @@
 <?php
-namespace WebTales\MongoFilters\Simple;
+namespace WebTales\MongoFilters;
 
 class InFilter extends OperatorToValueFilter
 {

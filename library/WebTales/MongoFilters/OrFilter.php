@@ -1,5 +1,5 @@
 <?php
-namespace WebTales\MongoFilters\Composite;
+namespace WebTales\MongoFilters;
 
 use WebTales\MongoFilters\CompositeFilter;
 

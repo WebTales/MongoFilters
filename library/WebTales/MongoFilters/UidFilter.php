@@ -1,5 +1,5 @@
 <?php
-namespace WebTales\MongoFilters\Uid;
+namespace WebTales\MongoFilters;
 
 use WebTales\MongoFilters\AbstractFilter;
 use WebTales\MongoFilters\Exception;

@@ -1,5 +1,5 @@
 <?php
-namespace WebTales\MongoFilters\Uid;
+namespace WebTales\MongoFilters;
 
 class NotUidFilter extends OperatorToUidFilter
 {
