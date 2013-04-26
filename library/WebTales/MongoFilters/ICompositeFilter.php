@@ -5,7 +5,7 @@ interface ICompositeFilter extends IFilter
 {
     public function addFilter(IFilter $filter);
     
-    public function setFilter(array $filters);
+    public function setFilters(array $filters);
 }
 
 ?>

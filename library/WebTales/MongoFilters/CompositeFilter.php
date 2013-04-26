@@ -17,7 +17,7 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
 
     public function setFilters(array $filters)
     {
-        $this->_filters = array();
+        $this->_filtersArray = array();
     
         foreach ($filters as $filter) {
             if(!$filter instanceof IFilter){
