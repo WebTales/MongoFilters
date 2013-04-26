@@ -9,15 +9,25 @@ class UidFilter extends AbstractFilter
 
     protected $_value;
 
-    public function __construct (array $params = null)
+
+    public function getValue ()
     {
-        if (! isset($params['value'])) {
-            throw new Exception('value is required');
-        }
-        if (! is_string($params['value']) || $params['value'] instanceof \MongoId) {
+        return $this->_value;
+    }
+
+    public function setValue ($_value)
+    {
+        if (! is_string($_value) && ! $_value instanceof \MongoId) {
             throw new Exception('Only Accepts string or MongoId');
         }
-        $this->_value = $params['value'];
+        $this->_value = $_value;
+    }
+
+    public function __construct (array $params = null)
+    {
+        if (isset($params['value'])) {
+            $this->setValue($params['value']);
+        }
         
         return $this;
     }

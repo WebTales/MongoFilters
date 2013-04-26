@@ -5,10 +5,9 @@ abstract class AbstractFilter implements IFilter
 {
 
     public function __construct (array $params=null)
-    {}
-
-    public function toArray ()
-    {}
+    {
+        return $this;
+    }
     
     public function toJson(){
         $resultArray = $this->toArray();
