@@ -4,6 +4,7 @@ MongoFilters
 Filter Layer for MongoDB queries
 
 Exemple of use :
+
 	$filters = new \WebTales\MongoFilters\Filter();
 	
 	$filter = new \WebTales\MongoFilters\Simple\ValueFilter(array('name'=>'param1','value'=>'value1'));
