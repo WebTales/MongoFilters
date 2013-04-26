@@ -46,6 +46,7 @@ class OperatorToValueFilter extends UidFilter
                 if (! $id instanceof \MongoId) {
                     $id = new \MongoId($id);
                 }
+                $value[]=$id;
             }
         } else {
             $value = $this->_value;
