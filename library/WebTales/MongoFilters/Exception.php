@@ -1,7 +1,7 @@
 <?php
 namespace WebTales\MongoFilters;
 
-class GenericFilter
+class Exception extends \Exception
 {
 }
 
