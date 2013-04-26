@@ -1,7 +1,7 @@
 <?php
 namespace WebTales\MongoFilters;
 
-use WebTales\MongoFilters\Composite\AndFilter;
+use WebTales\MongoFilters\AndFilter;
 
 class Filter extends AndFilter
 {
