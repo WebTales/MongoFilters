@@ -8,17 +8,17 @@ Exemple of use :
 	Use WebTales\MongoFilters\Filter;
 	(...)
 
-	\/\/generic Filter => global "And"
+	*//generic Filter => global "And"
     $filters = Filter::Factory(); 
     
-    \/\/Simpler filter : name => value
+    *//Simpler filter : name => value
     $filter = Filter::Factory('Value',array(
         'name' => 'param',
         'value' => 'value'
     ));
     $filters->addFilter($filter);
     
-    \/\/In Filter : name => '$in' => array
+    *//In Filter : name => '$in' => array
     $filter = Filter::Factory('In') 
                 //fluid definition of values
                 ->setName('param2') 
@@ -28,20 +28,20 @@ Exemple of use :
                     ));
     $filters->addFilter($filter);
     
-    \/\/Or Filter, can be nested and so on...
+    *//Or Filter, can be nested and so on...
     $filter = Filter::Factory('Or'); 
     
-    \/\/Simple Not
+    *//Simple Not
     $subfilter = Filter::Factory('Not',array('name'=>'param3','value'=>'value3')); 
     $filter->addFilter($subfilter);
     
-    \/\/Uid Filter : accept MongoId object or strings. Automagic handling of string to MongoId when building array
+    *//Uid Filter : accept MongoId object or strings. Automagic handling of string to MongoId when building array
     $subfilter = Filter::Factory('InUid',array('value'=>array('5178f41a2a804fdc5c000088','5178f41a2a804fdc5c000089')));
     $filter->addFilter($subfilter);
     
     $filters->addFilter($filter);
     
-    \/\/converter filter to Array and do request. (also see toJson if you want to see the query in mongoDB way
+    *//converter filter to Array and do request. (also see toJson if you want to see the query in mongoDB way
 	$cursor = $aMongoCollectionObject->find($filters->toArray());
 	(...)
 
