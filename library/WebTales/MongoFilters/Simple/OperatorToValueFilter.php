@@ -9,7 +9,7 @@ class OperatorToValueFilter extends ValueFilter
     protected $_operator = null;
     
 
-    public function __construct (array $params)
+    public function __construct (array $params=null)
     {
         if (is_null($this->_operator)) {
             if (! isset($params['operator'])) {

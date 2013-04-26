@@ -10,7 +10,7 @@ class ValueFilter extends AbstractFilter
     
     protected $_value;
     
-    public function __construct (array $params)
+    public function __construct (array $params=null)
     {
         if(!isset($params['name'])){
             throw new Exception('name is required');
