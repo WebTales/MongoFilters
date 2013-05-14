@@ -12,6 +12,10 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
         return $this;
     }
     
+    public function clearFilters(){
+        $this->_filtersArray = array();
+        return $this;
+    }
 
     public function setFilters(array $filters)
     {
