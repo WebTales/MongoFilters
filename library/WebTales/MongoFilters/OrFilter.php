@@ -10,15 +10,23 @@ class OrFilter extends CompositeFilter
      */
     public function toArray ()
     {
-        $buildFiltersArray = array();
+    $buildFiltersArray = array();
         foreach ($this->_filtersArray as $filter) {
-            $buildFiltersArray[] = $filter->toArray();
+            $filterArray = $filter->toArray();
+            if (! empty($filterArray)) {
+                $buildFiltersArray[] = $filterArray;
+            }
         }
-        
-        $returnArray = array(
-            '$or' => $buildFiltersArray
-        );
-        return $returnArray;
+        if (empty($buildFiltersArray)) {
+            return array();
+        } elseif (count($buildFiltersArray) == 1) {
+            return array_pop($buildFiltersArray);
+        } else {
+            $returnArray = array(
+                '$or' => $buildFiltersArray
+            );
+            return $returnArray;
+        }
     }
 }
 

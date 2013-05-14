@@ -12,13 +12,21 @@ class AndFilter extends CompositeFilter
     {
         $buildFiltersArray = array();
         foreach ($this->_filtersArray as $filter) {
-            $buildFiltersArray[] = $filter->toArray();
+            $filterArray = $filter->toArray();
+            if (! empty($filterArray)) {
+                $buildFiltersArray[] = $filterArray;
+            }
         }
-        
-        $returnArray = array(
-            '$and' => $buildFiltersArray
-        );
-        return $returnArray;
+        if (empty($buildFiltersArray)) {
+            return array();
+        } elseif (count($buildFiltersArray) == 1) {
+            return array_pop($buildFiltersArray);
+        } else {
+            $returnArray = array(
+                '$and' => $buildFiltersArray
+            );
+            return $returnArray;
+        }
     }
 }
 
