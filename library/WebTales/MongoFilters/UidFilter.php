@@ -21,6 +21,8 @@ class UidFilter extends AbstractFilter
             throw new Exception('Only Accepts string or MongoId');
         }
         $this->_value = $_value;
+        
+        return $this;
     }
 
     public function __construct (array $params = null)
