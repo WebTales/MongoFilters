@@ -21,6 +21,8 @@ class OperatorToUidFilter extends UidFilter
         }
         
         $this->_value = $_value;
+        
+        return $this;
     }
 
     public function __construct (array $params = null)
