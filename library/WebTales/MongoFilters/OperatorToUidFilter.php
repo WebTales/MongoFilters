@@ -11,8 +11,10 @@ class OperatorToUidFilter extends UidFilter
     public function setValue ($_value)
     {
         if (is_array($_value)) {
-            foreach ($_value as $id) {
-                if (! is_string($id) || $id instanceof \MongoId) {
+            foreach ($_value as $key => $id) {
+                if($id === null){
+                    unset($_value[$key]);
+                }elseif (! is_string($id) && !$id instanceof \MongoId) {
                     throw new Exception('Only Accepts string or MongoId');
                 }
             }
