@@ -9,12 +9,12 @@ class UidFilter extends AbstractFilter
 
     protected $value;
 
-    public function getValue ()
+    public function getValue()
     {
         return $this->value;
     }
 
-    public function setValue ($value)
+    public function setValue($value)
     {
         if (! is_string($value) && ! $value instanceof \MongoId) {
             throw new Exception('Only Accepts string or MongoId');
@@ -24,7 +24,7 @@ class UidFilter extends AbstractFilter
         return $this;
     }
 
-    public function __construct (array $params = null)
+    public function __construct(array $params = null)
     {
         if (isset($params['value'])) {
             $this->setValue($params['value']);
@@ -33,7 +33,7 @@ class UidFilter extends AbstractFilter
         return $this;
     }
 
-    public function toArray ()
+    public function toArray()
     {
         $id = $this->value;
         if (! $id instanceof \MongoId) {

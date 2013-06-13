@@ -11,7 +11,7 @@ class ValueFilter extends AbstractFilter
 
     protected $value;
 
-    public function __construct (array $params = null)
+    public function __construct(array $params = null)
     {
         if (isset($params['name'])) {
             $this->name = $params['name'];
@@ -22,7 +22,7 @@ class ValueFilter extends AbstractFilter
         return $this;
     }
 
-    public function toArray ()
+    public function toArray()
     {
         if (! isset($this->name)) {
             throw new Exception('name is required');
@@ -35,23 +35,23 @@ class ValueFilter extends AbstractFilter
         );
     }
 
-    public function getName ()
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getValue ()
+    public function getValue()
     {
         return $this->value;
     }
 
-    public function setName ($name)
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
     }
 
-    public function setValue ($value)
+    public function setValue($value)
     {
         $this->value = $value;
         return $this;

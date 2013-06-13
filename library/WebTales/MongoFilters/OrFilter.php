@@ -8,7 +8,7 @@ class OrFilter extends CompositeFilter
     /*
      * (non-PHPdoc) @see \WebTales\MongoFilters\AbstractFilter::toArray()
      */
-    public function toArray ()
+    public function toArray()
     {
         $buildFiltersArray = array();
         foreach ($this->filtersArray as $filter) {

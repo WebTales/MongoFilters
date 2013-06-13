@@ -4,11 +4,11 @@ namespace WebTales\MongoFilters;
 interface ICompositeFilter extends IFilter
 {
 
-    public function addFilter (IFilter $filter);
+    public function addFilter(IFilter $filter);
 
-    public function setFilters (array $filters);
+    public function setFilters(array $filters);
 
-    public function clearFilters ();
+    public function clearFilters();
 
-    public function getFilters ();
+    public function getFilters();
 }

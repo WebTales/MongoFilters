@@ -8,7 +8,7 @@ class OperatorToUidFilter extends UidFilter
 
     protected $operator = null;
 
-    public function setValue ($value)
+    public function setValue($value)
     {
         if (is_array($value)) {
             foreach ($value as $key => $id) {
@@ -27,7 +27,7 @@ class OperatorToUidFilter extends UidFilter
         return $this;
     }
 
-    public function __construct (array $params = null)
+    public function __construct(array $params = null)
     {
         if (isset($params['operator'])) {
             $this->operator = $params['operator'];
@@ -39,7 +39,7 @@ class OperatorToUidFilter extends UidFilter
     /*
      * (non-PHPdoc) @see \WebTales\MongoFilters\AbstractFilter::toArray()
      */
-    public function toArray ()
+    public function toArray()
     {
         if (! isset($this->value)) {
             throw new Exception('value is required');

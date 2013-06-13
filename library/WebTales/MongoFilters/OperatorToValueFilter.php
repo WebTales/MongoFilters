@@ -8,7 +8,7 @@ class OperatorToValueFilter extends ValueFilter
 
     protected $operator = null;
 
-    public function __construct (array $params = null)
+    public function __construct(array $params = null)
     {
         if (isset($params['operator'])) {
             $this->operator = $params['operator'];
@@ -20,7 +20,7 @@ class OperatorToValueFilter extends ValueFilter
     /*
      * (non-PHPdoc) @see \WebTales\MongoFilters\AbstractFilter::toArray()
      */
-    public function toArray ()
+    public function toArray()
     {
         if (! isset($this->name)) {
             throw new Exception('name is required');
@@ -39,12 +39,12 @@ class OperatorToValueFilter extends ValueFilter
         );
     }
 
-    public function getOperator ()
+    public function getOperator()
     {
         return $this->operator;
     }
 
-    public function setOperator ($operator)
+    public function setOperator($operator)
     {
         $this->operator = $operator;
         return $this;

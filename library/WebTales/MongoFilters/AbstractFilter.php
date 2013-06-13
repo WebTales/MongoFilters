@@ -4,7 +4,7 @@ namespace WebTales\MongoFilters;
 abstract class AbstractFilter implements IFilter
 {
 
-    public static function Factory ($name = null, $params = null)
+    public static function Factory($name = null, $params = null)
     {
         if (is_null($name)) {
             return new Filter($params);
@@ -16,12 +16,12 @@ abstract class AbstractFilter implements IFilter
         }
     }
 
-    public function __construct (array $params = null)
+    public function __construct(array $params = null)
     {
         return $this;
     }
 
-    public function toJson ()
+    public function toJson()
     {
         $resultArray = $this->toArray();
         if (defined('JSON_PRETTY_PRINT')) {

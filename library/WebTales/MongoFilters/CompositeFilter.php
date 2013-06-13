@@ -6,19 +6,19 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
 
     protected $filtersArray = array();
 
-    public function addFilter (IFilter $filter)
+    public function addFilter(IFilter $filter)
     {
         $this->filtersArray[] = $filter;
         return $this;
     }
 
-    public function clearFilters ()
+    public function clearFilters()
     {
         $this->filtersArray = array();
         return $this;
     }
 
-    public function setFilters (array $filters)
+    public function setFilters(array $filters)
     {
         $this->filtersArray = array();
         
@@ -36,7 +36,7 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
      *
      * @return array $filtersArray
      */
-    public function getFilters ()
+    public function getFilters()
     {
         return $this->filtersArray;
     }

@@ -9,7 +9,7 @@ class RegexFilter extends OperatorToValueFilter
     /*
      * (non-PHPdoc) @see \WebTales\MongoFilters\OperatorToValueFilter::toArray()
      */
-    public function toArray ()
+    public function toArray()
     {
         if (! isset($this->name)) {
             throw new Exception('name is required');
