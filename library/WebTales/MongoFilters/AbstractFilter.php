@@ -4,7 +4,7 @@ namespace WebTales\MongoFilters;
 abstract class AbstractFilter implements IFilter
 {
 
-    public static function Factory($name = null, $params = null)
+    public static function factory($name = null, $params = null)
     {
         if (is_null($name)) {
             return new Filter($params);
