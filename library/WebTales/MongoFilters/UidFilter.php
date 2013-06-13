@@ -9,7 +9,6 @@ class UidFilter extends AbstractFilter
 
     protected $_value;
 
-
     public function getValue ()
     {
         return $this->_value;
@@ -40,8 +39,8 @@ class UidFilter extends AbstractFilter
         if (! $id instanceof \MongoId) {
             $id = new \MongoId($id);
         }
-        return array('_id' => $id);        
+        return array(
+            '_id' => $id
+        );
     }
-
-    
 }

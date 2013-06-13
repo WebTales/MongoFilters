@@ -27,9 +27,9 @@ class RegexFilter extends OperatorToValueFilter
         }
         
         return array(
-                $this->_name => array(
-                        $this->_operator => $value
-                )
+            $this->_name => array(
+                $this->_operator => $value
+            )
         );
     }
 }

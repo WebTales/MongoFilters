@@ -10,7 +10,7 @@ class OrFilter extends CompositeFilter
      */
     public function toArray ()
     {
-    $buildFiltersArray = array();
+        $buildFiltersArray = array();
         foreach ($this->_filtersArray as $filter) {
             $filterArray = $filter->toArray();
             if (! empty($filterArray)) {

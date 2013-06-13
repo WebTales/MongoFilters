@@ -22,13 +22,13 @@ class OperatorToValueFilter extends ValueFilter
      */
     public function toArray ()
     {
-        if(!isset($this->_name)){
+        if (! isset($this->_name)) {
             throw new Exception('name is required');
         }
-        if(!isset($this->_value)){
+        if (! isset($this->_value)) {
             throw new Exception('value is required');
         }
-        if(!isset($this->_operator)){
+        if (! isset($this->_operator)) {
             throw new Exception('operator is required');
         }
         
@@ -38,20 +38,15 @@ class OperatorToValueFilter extends ValueFilter
             )
         );
     }
-    
 
     public function getOperator ()
     {
         return $this->_operator;
     }
 
-
     public function setOperator ($_operator)
     {
         $this->_operator = $_operator;
         return $this;
     }
-
-    
-    
 }
