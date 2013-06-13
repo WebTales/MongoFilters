@@ -11,7 +11,7 @@ class ElemMatchFilter extends CompositeFilter
     public function toArray ()
     {
         $buildFiltersArray = array();
-        foreach ($this->_filtersArray as $filter) {
+        foreach ($this->filtersArray as $filter) {
             $filterArray = $filter->toArray();
             if (! empty($filterArray)) {
                 $buildFiltersArray[] = $filterArray;
@@ -29,5 +29,3 @@ class ElemMatchFilter extends CompositeFilter
         }
     }
 }
-
-?>

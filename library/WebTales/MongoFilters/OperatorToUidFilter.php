@@ -6,23 +6,23 @@ use WebTales\MongoFilters\Exception;
 class OperatorToUidFilter extends UidFilter
 {
 
-    protected $_operator = null;
+    protected $operator = null;
 
-    public function setValue ($_value)
+    public function setValue ($value)
     {
-        if (is_array($_value)) {
-            foreach ($_value as $key => $id) {
+        if (is_array($value)) {
+            foreach ($value as $key => $id) {
                 if ($id === null) {
-                    unset($_value[$key]);
+                    unset($value[$key]);
                 } elseif (! is_string($id) && ! $id instanceof \MongoId) {
                     throw new Exception('Only Accepts string or MongoId');
                 }
             }
-        } elseif (! is_string($_value) && ! $_value instanceof \MongoId) {
+        } elseif (! is_string($value) && ! $value instanceof \MongoId) {
             throw new Exception('Only Accepts string or MongoId');
         }
         
-        $this->_value = $_value;
+        $this->value = $value;
         
         return $this;
     }
@@ -30,7 +30,7 @@ class OperatorToUidFilter extends UidFilter
     public function __construct (array $params = null)
     {
         if (isset($params['operator'])) {
-            $this->_operator = $params['operator'];
+            $this->operator = $params['operator'];
         }
         
         return parent::__construct($params);
@@ -41,23 +41,23 @@ class OperatorToUidFilter extends UidFilter
      */
     public function toArray ()
     {
-        if (! isset($this->_value)) {
+        if (! isset($this->value)) {
             throw new Exception('value is required');
         }
-        if (! isset($this->_operator)) {
+        if (! isset($this->operator)) {
             throw new Exception('operator is required');
         }
         
-        if (is_array($this->_value)) {
+        if (is_array($this->value)) {
             $value = array();
-            foreach ($this->_value as $id) {
+            foreach ($this->value as $id) {
                 if (! $id instanceof \MongoId) {
                     $id = new \MongoId($id);
                 }
                 $value[] = $id;
             }
         } else {
-            $value = $this->_value;
+            $value = $this->value;
             if (! $value instanceof \MongoId) {
                 $value = new \MongoId($value);
             }
@@ -65,7 +65,7 @@ class OperatorToUidFilter extends UidFilter
         
         return array(
             '_id' => array(
-                $this->_operator => $value
+                $this->operator => $value
             )
         );
     }

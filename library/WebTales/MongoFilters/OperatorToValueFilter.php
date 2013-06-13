@@ -6,12 +6,12 @@ use WebTales\MongoFilters\Exception;
 class OperatorToValueFilter extends ValueFilter
 {
 
-    protected $_operator = null;
+    protected $operator = null;
 
     public function __construct (array $params = null)
     {
         if (isset($params['operator'])) {
-            $this->_operator = $params['operator'];
+            $this->operator = $params['operator'];
         }
         
         return parent::__construct($params);
@@ -22,31 +22,31 @@ class OperatorToValueFilter extends ValueFilter
      */
     public function toArray ()
     {
-        if (! isset($this->_name)) {
+        if (! isset($this->name)) {
             throw new Exception('name is required');
         }
-        if (! isset($this->_value)) {
+        if (! isset($this->value)) {
             throw new Exception('value is required');
         }
-        if (! isset($this->_operator)) {
+        if (! isset($this->operator)) {
             throw new Exception('operator is required');
         }
         
         return array(
-            $this->_name => array(
-                $this->_operator => $this->_value
+            $this->name => array(
+                $this->operator => $this->value
             )
         );
     }
 
     public function getOperator ()
     {
-        return $this->_operator;
+        return $this->operator;
     }
 
-    public function setOperator ($_operator)
+    public function setOperator ($operator)
     {
-        $this->_operator = $_operator;
+        $this->operator = $operator;
         return $this;
     }
 }

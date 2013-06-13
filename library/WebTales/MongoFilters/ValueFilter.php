@@ -7,53 +7,53 @@ use WebTales\MongoFilters\Exception;
 class ValueFilter extends AbstractFilter
 {
 
-    protected $_name;
+    protected $name;
 
-    protected $_value;
+    protected $value;
 
     public function __construct (array $params = null)
     {
         if (isset($params['name'])) {
-            $this->_name = $params['name'];
+            $this->name = $params['name'];
         }
         if (isset($params['value'])) {
-            $this->_value = $params['value'];
+            $this->value = $params['value'];
         }
         return $this;
     }
 
     public function toArray ()
     {
-        if (! isset($this->_name)) {
+        if (! isset($this->name)) {
             throw new Exception('name is required');
         }
-        if (! isset($this->_value)) {
+        if (! isset($this->value)) {
             throw new Exception('value is required');
         }
         return array(
-            $this->_name => $this->_value
+            $this->name => $this->value
         );
     }
 
     public function getName ()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     public function getValue ()
     {
-        return $this->_value;
+        return $this->value;
     }
 
-    public function setName ($_name)
+    public function setName ($name)
     {
-        $this->_name = $_name;
+        $this->name = $name;
         return $this;
     }
 
-    public function setValue ($_value)
+    public function setValue ($value)
     {
-        $this->_value = $_value;
+        $this->value = $value;
         return $this;
     }
 }

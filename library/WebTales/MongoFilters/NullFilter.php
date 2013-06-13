@@ -10,30 +10,30 @@ class NullFilter extends ValueFilter
     public function __construct (array $params = null)
     {
         if (isset($params['name'])) {
-            $this->_name = $params['name'];
+            $this->name = $params['name'];
         }
         return $this;
     }
 
     public function toArray ()
     {
-        if (! isset($this->_name)) {
+        if (! isset($this->name)) {
             throw new Exception('name is required');
         }
         
         return array(
-            $this->_name => null
+            $this->name => null
         );
     }
 
     public function getName ()
     {
-        return $this->_name;
+        return $this->name;
     }
 
-    public function setName ($_name)
+    public function setName ($name)
     {
-        $this->_name = $_name;
+        $this->name = $name;
         return $this;
     }
 }

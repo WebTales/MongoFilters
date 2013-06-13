@@ -4,23 +4,23 @@ namespace WebTales\MongoFilters;
 abstract class CompositeFilter extends AbstractFilter implements ICompositeFilter
 {
 
-    protected $_filtersArray = array();
+    protected $filtersArray = array();
 
     public function addFilter (IFilter $filter)
     {
-        $this->_filtersArray[] = $filter;
+        $this->filtersArray[] = $filter;
         return $this;
     }
 
     public function clearFilters ()
     {
-        $this->_filtersArray = array();
+        $this->filtersArray = array();
         return $this;
     }
 
     public function setFilters (array $filters)
     {
-        $this->_filtersArray = array();
+        $this->filtersArray = array();
         
         foreach ($filters as $filter) {
             if (! $filter instanceof IFilter) {
@@ -34,10 +34,10 @@ abstract class CompositeFilter extends AbstractFilter implements ICompositeFilte
 
     /**
      *
-     * @return array $_filtersArray
+     * @return array $filtersArray
      */
     public function getFilters ()
     {
-        return $this->_filtersArray;
+        return $this->filtersArray;
     }
 }

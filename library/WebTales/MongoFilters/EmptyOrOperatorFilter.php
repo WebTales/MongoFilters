@@ -11,21 +11,21 @@ class EmptyOrOperatorFilter extends OperatorToValueFilter
      */
     public function toArray ()
     {
-        if (! isset($this->_name)) {
+        if (! isset($this->name)) {
             throw new Exception('name is required');
         }
-        if (! isset($this->_value)) {
+        if (! isset($this->value)) {
             throw new Exception('value is required');
         }
-        if (! isset($this->_operator)) {
+        if (! isset($this->operator)) {
             throw new Exception('operator is required');
         }
-        $tempFilter = Filter::Factory('Or')->addFilter(Filter::Factory('OperatorToValue')->setName($this->_name)
-            ->setOperator($this->_operator)
-            ->setValue($this->_value))
-            ->addFilter(Filter::Factory('Value')->setName($this->_name)
+        $tempFilter = Filter::Factory('Or')->addFilter(Filter::Factory('OperatorToValue')->setName($this->name)
+            ->setOperator($this->operator)
+            ->setValue($this->value))
+            ->addFilter(Filter::Factory('Value')->setName($this->name)
             ->setValue(''))
-            ->addFilter(Filter::Factory('Null')->setName($this->_name));
+            ->addFilter(Filter::Factory('Null')->setName($this->name));
         
         return $tempFilter->toArray();
     }

@@ -4,31 +4,31 @@ namespace WebTales\MongoFilters;
 class RegexFilter extends OperatorToValueFilter
 {
 
-    protected $_operator = '$regex';
+    protected $operator = '$regex';
     
     /*
      * (non-PHPdoc) @see \WebTales\MongoFilters\OperatorToValueFilter::toArray()
      */
     public function toArray ()
     {
-        if (! isset($this->_name)) {
+        if (! isset($this->name)) {
             throw new Exception('name is required');
         }
-        if (! isset($this->_value)) {
+        if (! isset($this->value)) {
             throw new Exception('value is required');
         }
-        if (! isset($this->_operator)) {
+        if (! isset($this->operator)) {
             throw new Exception('operator is required');
         }
         
-        $value = $this->_value;
+        $value = $this->value;
         if (! $value instanceof \MongoRegex) {
             $value = new \MongoRegex($value);
         }
         
         return array(
-            $this->_name => array(
-                $this->_operator => $value
+            $this->name => array(
+                $this->operator => $value
             )
         );
     }

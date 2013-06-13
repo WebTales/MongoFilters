@@ -7,19 +7,19 @@ use WebTales\MongoFilters\Exception;
 class UidFilter extends AbstractFilter
 {
 
-    protected $_value;
+    protected $value;
 
     public function getValue ()
     {
-        return $this->_value;
+        return $this->value;
     }
 
-    public function setValue ($_value)
+    public function setValue ($value)
     {
-        if (! is_string($_value) && ! $_value instanceof \MongoId) {
+        if (! is_string($value) && ! $value instanceof \MongoId) {
             throw new Exception('Only Accepts string or MongoId');
         }
-        $this->_value = $_value;
+        $this->value = $value;
         
         return $this;
     }
@@ -35,7 +35,7 @@ class UidFilter extends AbstractFilter
 
     public function toArray ()
     {
-        $id = $this->_value;
+        $id = $this->value;
         if (! $id instanceof \MongoId) {
             $id = new \MongoId($id);
         }
