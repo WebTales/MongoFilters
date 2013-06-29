@@ -36,6 +36,9 @@ class UidFilter extends AbstractFilter
     public function toArray()
     {
         $id = $this->value;
+        if (strlen($id) != 24) {
+          unset($id);
+        }
         if (! $id instanceof \MongoId) {
             $id = new \MongoId($id);
         }
