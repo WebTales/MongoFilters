@@ -31,7 +31,9 @@ class OperatorToValueFilter extends ValueFilter
         if (! isset($this->operator)) {
             throw new Exception('operator is required');
         }
-        
+        if (in_array($this->operator,array('$in',"nin"))){
+            $this->value=array_values($this->value);
+        }
         return array(
             $this->name => array(
                 $this->operator => $this->value
