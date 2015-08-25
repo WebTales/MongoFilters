@@ -38,10 +38,12 @@ class UidFilter extends AbstractFilter
         $id = $this->value;
         
         if (! $id instanceof \MongoId) {
-            if (! is_string($id) || preg_match('/[\dabcdef]{24}/', $id) !== 1) {
+            if (! is_string($id)) {
                 throw new Exception('Invalid MongoId :' . $id);
             }
-            $id = new \MongoId($id);
+            if (preg_match('/[\dabcdef]{24}/', $id) == 1){
+                $id = new \MongoId($id);
+            }
         }
         return array(
             '_id' => $id
