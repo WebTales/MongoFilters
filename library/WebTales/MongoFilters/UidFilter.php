@@ -36,13 +36,15 @@ class UidFilter extends AbstractFilter
     public function toArray()
     {
         $id = $this->value;
-        
-        if (! $id instanceof \MongoId) {
-            if (! is_string($id) || preg_match('/[\dabcdef]{24}/', $id) !== 1) {
+
+        try {
+            $id = new \MongoId($id);
+        } catch(\Exception $e) {
+            if(!is_string($id)) {
                 throw new Exception('Invalid MongoId :' . $id);
             }
-            $id = new \MongoId($id);
         }
+
         return array(
             '_id' => $id
         );

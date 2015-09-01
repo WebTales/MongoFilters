@@ -51,15 +51,23 @@ class OperatorToUidFilter extends UidFilter
         if (is_array($this->value)) {
             $value = array();
             foreach ($this->value as $id) {
-                if (! $id instanceof \MongoId) {
+                try {
                     $id = new \MongoId($id);
+                } catch(\Exception $e) {
+                    if(!is_string($id)) {
+                        throw new Exception('Invalid MongoId :' . $id);
+                    }
                 }
                 $value[] = $id;
             }
         } else {
             $value = $this->value;
-            if (! $value instanceof \MongoId) {
+            try {
                 $value = new \MongoId($value);
+            } catch(\Exception $e) {
+                if(!is_string($value)) {
+                    throw new Exception('Invalid MongoId :' . $value);
+                }
             }
         }
         
